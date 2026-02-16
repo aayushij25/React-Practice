@@ -1,0 +1,16 @@
+#heading {
+    color: red;
+}
+
+#parent {
+    background-color:burlywood;
+}
+
+#child1, #child2 {
+    background-color: blanchedalmond;
+}
+
+#heading2 {
+    color: brown;
+}
+
