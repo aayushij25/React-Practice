@@ -1,0 +1,31 @@
+{
+  "name": "igniting-the-app",
+  "version": "1.0.0",
+  "description": "This is React practice 02.",
+  "license": "ISC",
+  "author": "Aayushi Jaiswal",
+  "type": "commonjs",
+  "default": "igniting.html",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aayushij25/React-Practice.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/aayushij25/React-Practice/issues"
+  },
+  "homepage": "https://github.com/aayushij25/React-Practice#readme",
+  "devDependencies": {
+    "parcel": "^2.16.4"
+  },
+  "dependencies": {
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4"
+  },
+  "browserslist": [
+    "last 2 versions"
+  ]
+}
