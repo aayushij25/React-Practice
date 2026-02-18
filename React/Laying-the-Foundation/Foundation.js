@@ -17,7 +17,7 @@ const NewComponent = () => (
     <div>Function component inside a React Element</div>
 );
 const jsxHeading = (
-    <h1 id="heading" className="head">
+    <h1 id="heading" className="heading">
         {/* element inside another element */}
         {elem}
 
@@ -37,7 +37,7 @@ const data = 1000;
 
 // React Functional Component
 const HeadingComponent = function() {
-    return <h1 className="head">Functional Component inside another Functional Component</h1>
+    return <h1 className="heading">Functional Component inside another Functional Component</h1>
 }
 // (or)
 const HeadingComponent2 = () => (
@@ -54,7 +54,7 @@ const HeadingComponent2 = () => (
         {/* OR */}
         <HeadingComponent></HeadingComponent>
 
-        <h1 className="head">Hello World Functional Component</h1>
+        <h1 className="heading">Hello World Functional Component</h1>
     </div>
 );
 
