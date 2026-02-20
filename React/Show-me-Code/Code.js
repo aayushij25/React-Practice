@@ -51,21 +51,25 @@ const Header = () => (
     </div>
 );
 
-const Card = () => (
-    <div className="card">
-        <img src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/rcxwtceo5hqiabrqtgym" alt="Burger Bar" />
-        <h4>Burger Bar</h4>
-        <div className="star-eta">
-            <img src={star} alt="Star" />
-            <p>4.6</p>
-            <ul>
-                <li>20-25 mins</li>
-            </ul>
+// props = {resName, resImg} can be replaced
+const Card = (props) => {
+    const {resImg, resName, resRating, resEta, resFood, resLoc} = props
+    return (
+        <div className="card">
+            <img src={resImg} alt="Burger Bar" />
+            <h4>{resName}</h4>
+            <div className="star-eta">
+                <img src={star} alt="Star" />
+                <p>{resRating}</p>
+                <ul>
+                    <li>{resEta}</li>
+                </ul>
+            </div>
+            <div className="card-text">{resFood}</div>
+            <div className="card-text">{resLoc}</div>
         </div>
-        <div className="card-text">Burgers, American, Fast Food,...</div>
-        <div className="card-text">Ramdaspeth</div>
-    </div>
-);
+    );
+};
 
 const Body = () => (
     <div className="body">
@@ -74,8 +78,38 @@ const Body = () => (
             <div className="search-button">Search</div>
         </div>
         <div className="card-container">
-            <Card />
-            <Card />
+            <Card 
+            resImg="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/rcxwtceo5hqiabrqtgym" 
+            resName="Burger Bar"
+            resRating="4.6"
+            resEta="20-25 mins"
+            resFood="Burgers, American, Fast Food,..."
+            resLoc="Ramdaspeth"
+            />
+            <Card 
+            resImg="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_264,h_288,c_fill/RX_THUMBNAIL/IMAGES/VENDOR/2024/8/2/b46c8aeb-0135-4530-9318-fa556c75745b_53087.jpg" 
+            resName="Three Beans"
+            resRating="4.3"
+            resEta="25-30 mins"
+            resFood="Pizzas, Pastas, Momos, Bev..."
+            resLoc="Dharampeth"
+            />
+            <Card 
+            resImg="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_264,h_288,c_fill/RX_THUMBNAIL/IMAGES/VENDOR/2024/10/8/84cedc12-6489-4973-9023-5a327821e976_693368.jpg" 
+            resName="Nothing Before Coffee"
+            resRating="4.4"
+            resEta="20-25 mins"
+            resFood="Beverages, Dessert, Snacks, Fas..."
+            resLoc="Dharampeth"
+            />
+            <Card 
+            resImg="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_264,h_288,c_fill/RX_THUMBNAIL/IMAGES/VENDOR/2024/12/11/387926fa-cd28-4c42-b8ad-db8f620f22b9_866833.ss.jpg" 
+            resName="Tipsy Turk"
+            resRating="4.4"
+            resEta="20-25 mins"
+            resFood="Turkish, Mughlai, Middle Eas..."
+            resLoc="Sadar"
+            />
         </div>
     </div>
 );
