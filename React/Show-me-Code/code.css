@@ -94,7 +94,7 @@
 
 .card {
     width: 300px;
-    height: 300px;
+    /* height: 300px; */
     border-radius: 5%;
     cursor: pointer;
     justify-content: stretch;
@@ -149,4 +149,5 @@
     color: rgb(2, 6, 12);
     opacity: 50%;
     font-size: 15px;
+    margin-bottom: 5px;
 }
