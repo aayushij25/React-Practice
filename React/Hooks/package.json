@@ -6,8 +6,8 @@
   "author": "Aayushi Jaiswal",
   "type": "commonjs",
   "scripts": {
-    "start": "parcel code.html",
-    "build": "parcel build code.html",
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
     "test": "jest"
   },
   "repository": {

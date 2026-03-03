@@ -151,3 +151,18 @@
     font-size: 15px;
     margin-bottom: 5px;
 }
+
+.filter-btn {
+    margin: 10px;
+    height: 35px;
+    width: 150px;
+    display: flex;
+    background-color: #ea4073;
+    color: #ffffff;
+    border: 1px solid black;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5%;
+    cursor: pointer;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
