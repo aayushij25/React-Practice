@@ -4,4 +4,7 @@ export const ABOUT = new URL('/img/about.png', import.meta.url);
 export const CONTACT = new URL('/img/contact.png', import.meta.url);
 export const CART = new URL('/img/cart.png', import.meta.url);
 export const STAR = new URL('/img/star.png', import.meta.url);
+export const PLACEHOLDER = new URL('/img/placeholder-light.avif', import.meta.url);
+export const RESLIST_URL = "https://corsproxy.io/https://namastedev.com/api/v1/listRestaurants";
 export const CDN_URL = "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/";
+export const MENU_URL = "https://corsproxy.io/https://namastedev.com/api/v1/listRestaurantMenu/";

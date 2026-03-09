@@ -1,4 +1,4 @@
-import { CDN_URL } from "../utils/constants";
+import { CDN_URL, PLACEHOLDER } from "../utils/constants";
 import { STAR } from "../utils/constants";
 
 // props = {resName, resImg} can be replaced
@@ -7,7 +7,7 @@ const Card = ({resData}) => {
 
     return (
         <div className="card">
-            <img src={CDN_URL + cloudinaryImageId} alt={name} />
+            <img src={cloudinaryImageId === "rng/md/carousel/production/indian101" ? PLACEHOLDER : CDN_URL + cloudinaryImageId} alt={name} />
             <h4>{name}</h4>
             <div className="star-eta">
                 <img src={STAR} alt="Star" />

@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { Link } from "react-router";
 import { LOGO } from "../utils/constants";
 import { HOME } from "../utils/constants";
 import { ABOUT } from "../utils/constants";
@@ -9,6 +10,9 @@ const Header = () => {
     console.log("Header Called");
 
     const [loginBtn, setLoginBtn] = useState("Login");
+    useEffect(() => {
+        console.log("useEffect called");
+    }, []);
 
     return (
         <div className="header">
@@ -17,15 +21,15 @@ const Header = () => {
                 <ul>
                     <li>
                         <img src={HOME} alt="Home" />
-                        <div>Home</div>
+                        <div><Link to="/" className="navbar-items">Home</Link></div>
                     </li>
                     <li>
                         <img src={ABOUT} alt="About Us" />
-                        <div>About Us</div>
+                        <div><Link to="/about" className="navbar-items">About Us</Link></div>
                     </li>
                     <li>
                         <img src={CONTACT} alt="Contact Us" />
-                        <div>Contact Us</div>
+                        <div><Link to="/contact" className="navbar-items">Contact Us</Link></div>
                     </li>
                     <li>
                         <img src={CART} alt="Cart" />

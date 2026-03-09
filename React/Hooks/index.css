@@ -49,6 +49,16 @@
     cursor: pointer;
 }
 
+.navbar-items {
+    text-decoration: none;
+    color: black;
+}
+
+.navbar-items:hover {
+    color: #ea4073;
+    cursor: pointer;
+}
+
 .body {
     margin-top: 20px;
     padding: 20px;
@@ -100,6 +110,7 @@
     cursor: pointer;
     justify-content: stretch;
     margin-bottom: 10px;
+    color: black;
 }
 
 .card:hover {
@@ -269,4 +280,96 @@
     color: #ea4073;
     background-color: #ffffff;
     cursor: pointer;
+}
+
+.resMenu-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.resName {
+    width: 800px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: left;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.resMenu {
+    width: 800px;
+    padding: 20px;
+    border-radius: 20px;
+    background: linear-gradient(rgb(255, 255, 255) -6.71%, rgb(235, 235, 242) 56.19%, #ea4073 106.56%);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.resBox {
+    background-color: white;
+    padding: 20px;
+    border: 1px solid black;
+    border-radius: 20px;
+}
+
+.resInfo {
+    display: flex;
+    font-weight: 600;
+}
+
+.resInfo > img {
+    width: 20px;
+    height: 20px;
+    margin-top: 5px;
+}
+
+.resInfo > div {
+    margin-left: 5px;
+    margin-top: 5px;
+}
+
+.resInfo > ul {
+    margin-top: 5px;
+}
+
+.resLocality {
+    margin-top: 10px;
+}
+
+.resTime {
+    margin-top: 10px;
+}
+
+.resItems {
+    width: 800px;
+    padding: 20px;
+}
+
+.resItem {
+    list-style: none;
+    font-weight: 500;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.itemContainer {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+    padding: 20px;
+    border-bottom: 1px solid gray;
+}
+
+.itemText {
+    margin: 5px;
+}
+
+.itemName {
+    font-size: larger;
+}
+
+.itemImg {
+    width: 200px;
+    height: 200px;
+    border-radius: 20px;
+    object-fit: cover;
 }

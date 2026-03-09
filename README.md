@@ -50,3 +50,7 @@
  - Normal JS Functions
  - useState() : Superpowerful State Variable in React, imported as named import
  - useEffect()
+
+ # 2 Types of Routing in web apps:
+ - Client Side Routing
+ - Server Side Routing

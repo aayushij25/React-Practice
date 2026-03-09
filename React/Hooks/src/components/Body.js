@@ -1,6 +1,8 @@
 import Card from "./Card";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
+import { RESLIST_URL } from "../utils/constants";
+import { Link } from "react-router";
 // import resList from "../utils/mockData";
 
 // no key is unacceptable <<<<<<<<< atleast key = index value <<<<<<<<<<<< key = unique id (best practice)
@@ -17,10 +19,10 @@ const Body = () => {
     }, []);
 
     const fetchData = async () => {
-        const data = await fetch("https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=21.1378715&lng=79.1365083&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+        const data = await fetch(RESLIST_URL);
         const jsonData = await data.json();
-        setListOfRes(jsonData?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-        setFilteredRes(jsonData?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+        setListOfRes(jsonData?.data?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+        setFilteredRes(jsonData?.data?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
         console.log(jsonData);
     }
 
@@ -68,7 +70,14 @@ const Body = () => {
             </div>
             
             <div className="card-container">
-                {filteredRes.map(restaurant => <Card resData={restaurant} key={restaurant.info.id} />)}
+                {filteredRes.map(restaurant => 
+                <Link 
+                style={{textDecoration: "none"}}
+                key={restaurant.info.id}
+                to={"/restaurants/" + restaurant.info.id}
+                >
+                    <Card resData={restaurant} />
+                </Link> )}
             </div>
         </div>
     );
