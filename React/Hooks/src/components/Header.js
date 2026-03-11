@@ -7,11 +7,11 @@ import { CONTACT } from "../utils/constants";
 import { CART } from "../utils/constants";
 
 const Header = () => {
-    console.log("Header Called");
+    // console.log("Header Called");
 
     const [loginBtn, setLoginBtn] = useState("Login");
     useEffect(() => {
-        console.log("useEffect called");
+        // console.log("useEffect called");
     }, []);
 
     return (

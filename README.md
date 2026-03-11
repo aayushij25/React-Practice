@@ -54,3 +54,29 @@
  # 2 Types of Routing in web apps:
  - Client Side Routing
  - Server Side Routing
+
+ # Mounting Cycle
+ - Parent Constructor
+ - Parent Render
+    - Child1 Constructor
+    - Child1 Render
+    - Child2 Constructor
+    - Child2 Render
+    - Child1 ComponentDidMount
+    - Child2 ComponenetDidMount
+- Parent ComponentDidMount
+
+# Updating Cycle
+- Constructor (dummy data)
+- Render (dummy data)
+    <HTML Dummy>
+- ComponentDidMount
+    <API CALL>
+    <this.setState> -> State variable is updated
+- Update
+    Render (API data)
+        <HTML API>
+    ComponentDidUpdate
+
+# Unmounting Cycle
+- ComponentWillUnmount (when move to different component)

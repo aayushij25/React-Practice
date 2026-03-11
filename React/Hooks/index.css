@@ -373,3 +373,25 @@
     border-radius: 20px;
     object-fit: cover;
 }
+
+.about {
+    padding: 10px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.user-card {
+    display: flex;
+    padding: 10px;
+    margin: 10px;
+    color: rgb(111, 110, 110);
+    border: 1px solid gray;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.userclass-img {
+    margin: 20px;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+}
