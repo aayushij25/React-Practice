@@ -5,9 +5,12 @@ import { HOME } from "../utils/constants";
 import { ABOUT } from "../utils/constants";
 import { CONTACT } from "../utils/constants";
 import { CART } from "../utils/constants";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Header = () => {
     // console.log("Header Called");
+
+    const onlineStatus = useOnlineStatus();
 
     const [loginBtn, setLoginBtn] = useState("Login");
     useEffect(() => {
@@ -34,6 +37,9 @@ const Header = () => {
                     <li>
                         <img src={CART} alt="Cart" />
                         <div>Cart</div>
+                    </li>
+                    <li>
+                        <div>{onlineStatus ? 'Online 🟢' : 'Offline 🔴'}</div>
                     </li>
                     <li>
                         <div 

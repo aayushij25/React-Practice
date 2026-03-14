@@ -1,24 +1,14 @@
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
-import { STAR, CDN_URL, MENU_URL } from "../utils/constants";
+import { STAR, CDN_URL } from "../utils/constants";
 import { useParams } from 'react-router';
+import useResMenu from "../utils/useResMenu";
 
 const ResMenu = () => {
 
     const {resId} = useParams();
 
-    const [resInfo, setResInfo] = useState(null);
-
-    useEffect(() => {
-        fetchMenu();
-    }, []);
-
-    const fetchMenu = async () => {
-        const data = await fetch(MENU_URL + resId);
-        const jsonData = await data.json();
-        setResInfo(jsonData);
-        console.log(jsonData);
-    }
+    const resInfo = useResMenu(resId);
 
     if(resInfo === null) return <Shimmer />;
 

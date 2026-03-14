@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { RESLIST_URL } from "../utils/constants";
 import { Link } from "react-router";
+import useOnlineStatus from "../utils/useOnlineStatus";
 // import resList from "../utils/mockData";
 
 // no key is unacceptable <<<<<<<<< atleast key = index value <<<<<<<<<<<< key = unique id (best practice)
@@ -32,6 +33,10 @@ const Body = () => {
         return <Shimmer />
     }
     */
+
+    const onlineStatus = useOnlineStatus();
+
+    if(onlineStatus === false) return <h1>You're offline! Please check your internet</h1>
 
     return listOfRes.length === 0 ? <Shimmer /> : (
         <div className="body">
