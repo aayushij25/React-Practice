@@ -17,8 +17,8 @@ class About extends Component {
         return (
             <div>
                 <h1 className='about'>About Us</h1>
-                <User name={"Aayushi Jaiswal"} location={"India"} contact={"aj25300jaiswal@gmail.com"} />
-                {/* <UserClass name={"First"} location={"US"} contact={"jane13doe@gmail.com"} /> */}
+                {/* <User name={"Aayushi Jaiswal"} location={"India"} contact={"aj25300jaiswal@gmail.com"} /> */}
+                <UserClass name={"First"} location={"US"} contact={"jane13doe@gmail.com"} />
                 {/* <UserClass name={"Second"} location={"US"} contact={"jane13doe@gmail.com"} />
                 <UserClass name={"Third"} location={"US"} contact={"jane13doe@gmail.com"} /> */}
             </div>

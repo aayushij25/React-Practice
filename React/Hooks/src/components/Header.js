@@ -35,6 +35,9 @@ const Header = () => {
                         <div><Link to="/contact" className="navbar-items">Contact Us</Link></div>
                     </li>
                     <li>
+                        <div><Link to="/groceries" className="navbar-items">Groceries</Link></div>
+                    </li>
+                    <li>
                         <img src={CART} alt="Cart" />
                         <div>Cart</div>
                     </li>
