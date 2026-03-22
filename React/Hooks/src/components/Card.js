@@ -22,4 +22,15 @@ const Card = ({resData}) => {
     );
 };
 
+export const withVegLabel = (Card) => {
+    return (props) => {
+        return (
+            <div>
+                <label className="veg-label">Veg</label>
+                <Card {...props}/>
+            </div>
+        )
+    }
+};
+
 export default Card;

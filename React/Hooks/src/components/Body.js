@@ -1,7 +1,7 @@
-import Card from "./Card";
+import Card, {withVegLabel} from "./Card";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
-import { RESLIST_URL } from "../utils/constants";
+import { RESLIST_URL1 } from "../utils/constants";
 import { Link } from "react-router";
 import useOnlineStatus from "../utils/useOnlineStatus";
 // import resList from "../utils/mockData";
@@ -13,6 +13,8 @@ const Body = () => {
     const [filteredRes, setFilteredRes] = useState([]);
     const [searchText, setSearchText] = useState("");
 
+    const VegCard = withVegLabel(Card);
+
     console.log("Body rendered");
     
     useEffect(()=> {
@@ -20,10 +22,10 @@ const Body = () => {
     }, []);
 
     const fetchData = async () => {
-        const data = await fetch(RESLIST_URL);
+        const data = await fetch(RESLIST_URL1);
         const jsonData = await data.json();
-        setListOfRes(jsonData?.data?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-        setFilteredRes(jsonData?.data?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+        setListOfRes(jsonData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+        setFilteredRes(jsonData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
         console.log(jsonData);
     }
 
@@ -81,7 +83,7 @@ const Body = () => {
                 key={restaurant.info.id}
                 to={"/restaurants/" + restaurant.info.id}
                 >
-                    <Card resData={restaurant} />
+                    {restaurant.info.veg ? <VegCard resData={restaurant} /> : <Card resData={restaurant} />}
                 </Link> )}
             </div>
         </div>

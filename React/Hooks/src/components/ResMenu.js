@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
-import { STAR, CDN_URL } from "../utils/constants";
+import { STAR, CDN_URL, PLACEHOLDER } from "../utils/constants";
 import { useParams } from 'react-router';
 import useResMenu from "../utils/useResMenu";
 
@@ -13,8 +13,8 @@ const ResMenu = () => {
     if(resInfo === null) return <Shimmer />;
 
     const {name, avgRating, costForTwoMessage, cuisines, totalRatingsString, locality, sla} = resInfo?.data?.cards[2]?.card?.card?.info;
-    const {itemCards} = resInfo?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card
-
+    const {itemCards} = resInfo?.data?.cards[5]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.find(item => item?.card?.card?.itemCards)?.card?.card ;
+    
     return (    
         <div>
             <div className="resMenu-container">
@@ -48,7 +48,7 @@ const ResMenu = () => {
                                 <div className="itemName">{item.card.info.name}</div>
                                 <div>{"Rs. "} {item.card.info.price / 100 || item.card.info.defaultPrice / 100}</div> 
                             </div>
-                            <img className="itemImg" src={CDN_URL + item.card.info.imageId} alt={item.card.info.name} />
+                            <img className="itemImg" src={item.card.info.imageId ? CDN_URL + item.card.info.imageId : PLACEHOLDER} alt={item.card.info.name} />
                         </li>
                         )}
                     </ul>
