@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { Link } from "react-router";
 import { LOGO } from "../utils/constants";
 import { HOME } from "../utils/constants";
@@ -6,6 +6,7 @@ import { ABOUT } from "../utils/constants";
 import { CONTACT } from "../utils/constants";
 import { CART } from "../utils/constants";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserContext from "../utils/UserContext";
 
 const Header = () => {
     // console.log("Header Called");
@@ -16,6 +17,8 @@ const Header = () => {
     useEffect(() => {
         // console.log("useEffect called");
     }, []);
+
+    const {loggedInUser} = useContext(UserContext);
 
     return (
         <div className="header">
@@ -42,7 +45,7 @@ const Header = () => {
                         <div>Cart</div>
                     </li>
                     <li>
-                        <div>{onlineStatus ? 'Online 🟢' : 'Offline 🔴'}</div>
+                        <div>{loggedInUser}: {onlineStatus ? '🟢' : '🔴'}</div>
                     </li>
                     <li>
                         <div 

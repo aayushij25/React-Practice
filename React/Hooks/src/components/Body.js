@@ -1,9 +1,10 @@
 import Card, {withVegLabel} from "./Card";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import Shimmer from "./Shimmer";
 import { RESLIST_URL1 } from "../utils/constants";
 import { Link } from "react-router";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserContext from "../utils/UserContext";
 // import resList from "../utils/mockData";
 
 // no key is unacceptable <<<<<<<<< atleast key = index value <<<<<<<<<<<< key = unique id (best practice)
@@ -24,8 +25,8 @@ const Body = () => {
     const fetchData = async () => {
         const data = await fetch(RESLIST_URL1);
         const jsonData = await data.json();
-        setListOfRes(jsonData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-        setFilteredRes(jsonData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+        setListOfRes(jsonData?.data?.cards?.find(item => item.card?.card?.gridElements?.infoWithStyle?.restaurants).card?.card?.gridElements?.infoWithStyle?.restaurants);
+        setFilteredRes(jsonData?.data?.cards?.find(item => item.card?.card?.gridElements?.infoWithStyle?.restaurants).card?.card?.gridElements?.infoWithStyle?.restaurants);
         console.log(jsonData);
     }
 
@@ -38,10 +39,16 @@ const Body = () => {
 
     const onlineStatus = useOnlineStatus();
 
+    const {setUserName} = useContext(UserContext);
+
     if(onlineStatus === false) return <h1>You're offline! Please check your internet</h1>
 
     return listOfRes.length === 0 ? <Shimmer /> : (
         <div className="body">
+            <div className="inputDiv">
+                <label>UserName: </label>
+                <input className="inputBody" onChange={(e) => setUserName(e.target.value)} />
+            </div> 
             <div className="search">
                 <input 
                 className="search-box" 
@@ -75,7 +82,6 @@ const Body = () => {
                     Top Restaurants
                 </div>
             </div>
-            
             <div className="card-container">
                 {filteredRes.map(restaurant => 
                 <Link 

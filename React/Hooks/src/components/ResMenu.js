@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Shimmer from "./Shimmer";
 import { STAR, CDN_URL, PLACEHOLDER } from "../utils/constants";
 import { useParams } from 'react-router';
 import useResMenu from "../utils/useResMenu";
+import ResCategory from "./ResCategory";
 
 const ResMenu = () => {
 
@@ -10,11 +11,14 @@ const ResMenu = () => {
 
     const resInfo = useResMenu(resId);
 
+    const [showIndexCategory, setShowIndexCategory] = useState(0);
+
     if(resInfo === null) return <Shimmer />;
 
     const {name, avgRating, costForTwoMessage, cuisines, totalRatingsString, locality, sla} = resInfo?.data?.cards[2]?.card?.card?.info;
-    const {itemCards} = resInfo?.data?.cards[5]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.find(item => item?.card?.card?.itemCards)?.card?.card ;
     
+    const categories = resInfo?.data?.cards[5]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(category => category.card?.card?.["@type"] === "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory");
+
     return (    
         <div>
             <div className="resMenu-container">
@@ -41,17 +45,14 @@ const ResMenu = () => {
                     </div>
                 </div>
                 <div className="resItems">
-                    <ul className="resItem" >
-                        {itemCards.map((item) => 
-                        <li className="itemContainer" key={item.card.info.id}>
-                            <div className="itemText">
-                                <div className="itemName">{item.card.info.name}</div>
-                                <div>{"Rs. "} {item.card.info.price / 100 || item.card.info.defaultPrice / 100}</div> 
-                            </div>
-                            <img className="itemImg" src={item.card.info.imageId ? CDN_URL + item.card.info.imageId : PLACEHOLDER} alt={item.card.info.name} />
-                        </li>
-                        )}
-                    </ul>
+                    {categories.map((category, index) => 
+                    <ResCategory 
+                        key={category.card?.card?.categoryId} 
+                        data={category.card?.card} 
+                        showCategoryItems={index === showIndexCategory ? true : false}
+                        setShowIndexCategory={() => setShowIndexCategory(index)}
+                    />
+                    )}
                 </div>
             </div>
         </div>
