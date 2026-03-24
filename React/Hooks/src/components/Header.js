@@ -7,6 +7,7 @@ import { CONTACT } from "../utils/constants";
 import { CART } from "../utils/constants";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import UserContext from "../utils/UserContext";
+import {useSelector} from 'react-redux';
 
 const Header = () => {
     // console.log("Header Called");
@@ -19,6 +20,9 @@ const Header = () => {
     }, []);
 
     const {loggedInUser} = useContext(UserContext);
+
+    const cartItems = useSelector((store) => store.cart.items);
+    console.log(cartItems);
 
     return (
         <div className="header">
@@ -42,7 +46,7 @@ const Header = () => {
                     </li>
                     <li>
                         <img src={CART} alt="Cart" />
-                        <div>Cart</div>
+                        <div><Link to="/cart" className="navbar-items">Cart ({cartItems.length})</Link></div>
                     </li>
                     <li>
                         <div>{loggedInUser}: {onlineStatus ? '🟢' : '🔴'}</div>
